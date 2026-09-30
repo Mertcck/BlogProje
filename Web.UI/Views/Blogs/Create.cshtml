@@ -1,0 +1,21 @@
+@model BlogCreateViewModel
+@{ ViewData["Title"] = "Yeni yazı"; }
+<section class="form-wrap">
+    <span class="eyebrow">YAZAR MASASI</span>
+    <h1>Yeni bir yazı oluştur</h1>
+    <p>Başlığını ve içeriğini ekleyip blog arşivinde paylaş.</p>
+    <form asp-action="Create" method="post" class="blog-form">
+        <div asp-validation-summary="ModelOnly" class="validation"></div>
+        <label asp-for="Blog.Title">Başlık</label>
+        <input asp-for="Blog.Title" placeholder="Yazının başlığı" />
+        <span asp-validation-for="Blog.Title" class="validation"></span>
+        <label asp-for="Blog.CategoryId">Kategori</label>
+        <select asp-for="Blog.CategoryId" asp-items="Model.Categories"><option value="">Kategori seçin</option></select>
+        <span asp-validation-for="Blog.CategoryId" class="validation"></span>
+        <label asp-for="Blog.Content">İçerik</label>
+        <textarea asp-for="Blog.Content" rows="9" placeholder="Düşüncelerini buraya yaz..."></textarea>
+        <span asp-validation-for="Blog.Content" class="validation"></span>
+        <input asp-for="Blog.WriterId" type="hidden" value="1" />
+        <button class="button button-dark" type="submit">Yazıyı kaydet <span>↗</span></button>
+    </form>
+</section>

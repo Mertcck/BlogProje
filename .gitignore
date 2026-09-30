@@ -1,0 +1,5 @@
+**/bin/
+**/obj/
+.vs/
+Web.UI/BlogProje.db*
+Web.UI/App_Data/Keys/

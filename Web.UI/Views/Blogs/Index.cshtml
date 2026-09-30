@@ -1,0 +1,17 @@
+@model IReadOnlyList<BlogListItemDto>
+@{ ViewData["Title"] = "Yazılar"; }
+<section class="page-heading">
+    <div><span class="eyebrow">BLOG ARŞİVİ</span><h1>Son yazılar</h1><p>Merak edilen konulardan seçilmiş kısa okumalar.</p></div>
+    <a class="button button-dark" asp-action="Create">Yeni yazı <span>＋</span></a>
+</section>
+<div class="post-grid">
+@foreach (var post in Model)
+{
+    <article class="post-card">
+        <div class="post-meta"><span>@post.CategoryName</span><time>@post.CreatedAt.ToLocalTime().ToString("dd MMM yyyy")</time></div>
+        <h2>@post.Title</h2>
+        <p>@post.ContentPreview</p>
+        <div class="post-author"><span class="avatar">@post.WriterName.FirstOrDefault()</span><span>@post.WriterName</span></div>
+    </article>
+}
+</div>

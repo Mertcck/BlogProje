@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] · BlogProje</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" asp-controller="Home" asp-action="Index"><span class="brand-mark">B</span><span>Blog<span class="brand-light">Proje</span></span></a>
+        <nav><a asp-controller="Blogs" asp-action="Index">Yazılar</a><a asp-controller="Blogs" asp-action="Create">Yazı oluştur <span>↗</span></a></nav>
+    </header>
+    <main>@RenderBody()</main>
+    <footer><span>BLOGPROJE</span><span>Fikirler burada büyür.</span><span>© 2026</span></footer>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
